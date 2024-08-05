@@ -1,0 +1,22 @@
+﻿
+@model Department
+<form action="/Department/EditSave">
+    <input type="hidden" name="Id" value="@Model?.Id" />
+    <div class="form-group">
+        @* <label for="exampleInputName">Name</label> *@
+        @* @Html.LabelFor(e => e.Name) *@
+        <label asp-for="Name"></label>
+        @* pure html *@
+          @* <input type="text" class="form-control" value="@Model?.Name" name="Name"> *@
+        @* html helper*@
+          @* @Html.TextAreaFor(e => e.Name, new { @class = "form-control" }) *@
+          @* @Html.EditorFor(e => e.Name) *@
+        @* Tag html *@
+        <input asp-for="Name" class="form-control" />
+
+
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

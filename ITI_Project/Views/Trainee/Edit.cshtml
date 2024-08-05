@@ -1,0 +1,47 @@
+﻿@model Trainee
+@{
+    SelectList Depts = new SelectList(ViewBag.depts, "Id", "Name"); //Id, name are property of Departments which in lis "depts"
+}
+@{
+    SelectList grds = new SelectList(ViewBag.grades); //Id, name are property of Departments which in lis "depts"
+}
+<form action="/Trainee/EditSave">
+    <input type="hidden" name="Id" value="@Model?.Id" />
+    <div class="form-group">
+        @* <label for="exampleInputName">Name</label> *@
+        @* @Html.LabelFor(e => e.Name) *@
+        <label asp-for="Name"></label>
+        @* pure html *@
+          @* <input type="text" class="form-control" value="@Model?.Name" name="Name"> *@
+        @* html helper*@
+          @* @Html.TextAreaFor(e => e.Name, new { @class = "form-control" }) *@
+          @* @Html.EditorFor(e => e.Name) *@
+        @* Tag html *@
+        <input asp-for="Name" class="form-control" />
+
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputage">age</label>
+        <input type="text" class="form-control" value="@Model?.age" name="age">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputage">address</label>
+        <input type="text" class="form-control" value="@Model?.address" name="address">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputDepartmentName">Department Name</label>
+        @* <input type="text" class="form-control" value="@Model?.Deptid" name="Deptid"> *@
+        <select class="form-control" asp-for="Deptid" asp-items="Depts">
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputsalry">grade</label>
+        <select class="form-control" asp-for="grade" asp-items="grds">
+        </select>
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

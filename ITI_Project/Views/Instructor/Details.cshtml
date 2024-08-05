@@ -1,0 +1,17 @@
+﻿@model Instructor;
+<div class="container mt-5">
+    <div class="card" style="width: 40rem;">
+        <img class="logo" src="~/img/pic.jpg" alt="Card image cap" style="width: 200px; height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text"><strong>ID:</strong> @Model.InstructorId</p>
+            <p class="card-text"><strong>Age:</strong> @Model.age</p>
+            <p class="card-text"><strong>Salary:</strong> @Model.salary</p>
+            <p class="card-text"><strong>Course:</strong> @Model.Course.Name</p>
+            <p class="card-text"><strong>Department:</strong> @Model.Department.Name</p>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<a asp-action="GetAll" asp-controller="Instructor" class="btn btn-primary">Back To list</a>

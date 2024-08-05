@@ -1,0 +1,46 @@
+﻿@model List<Department>;
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+            <th scope="col">Actions</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Dept in Model)
+        {
+            <tr>
+                <td>@Dept.Name</td>
+                @* pure HTML*@
+                 @* <td> <a href="/Instructor/Details/@inst.InstructorId" class="btn btn-outline-info">Details</a></td> *@
+                @* HTML HELPER*@
+                @* <td> @Html.ActionLink("Details", "Details", "Instructor", new { id = inst.InstructorId }, new { @class = "btn btn-outline-info" })</td> *@
+                @*Tag HTML*@
+                <td><a asp-action="Details" asp-controller="Department" asp-route-id="@Dept.Id" class="btn btn-outline-info">Details</a></td>
+
+                <td> <a href="/Department/Edit/@Dept.Id" class="btn btn-outline-info">Edit</a></td>
+                <td>
+                    <form action="/Department/Delete" onsubmit="return confirmDelete();">
+                        <input type="hidden" name="Id" value="@Dept?.Id"/>      <!-- you may remove this and modify imp of action delete -->
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+                
+            </tr>
+        }
+
+    </tbody>
+</table>
+<br />
+<br />
+<form action="Department/New">
+    <button class="btn btn-primary">New</button>
+</form>
+
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this instructor?");
+    }
+</script>

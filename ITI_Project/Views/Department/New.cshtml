@@ -1,0 +1,10 @@
+﻿@model Department
+<form action="/Department/Save" method="post">
+    <div class="form-group">
+        <label for="exampleInputName">Name</label>
+        <input type="text" class="form-control" value="@Model?.Name" name="Name">
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

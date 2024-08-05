@@ -1,0 +1,30 @@
+﻿@model Course
+@{
+    SelectList Depts = new SelectList(ViewBag.depts, "Id", "Name"); //Id, name are property of Departments which in lis "depts" 
+}
+<form action="/Course/Save" method="post">
+    <div class="form-group">
+        <label for="exampleInputName">Name</label>
+        <input type="text" class="form-control" value="@Model?.Name" name="Name">
+        @* <span asp-validation-for="Name" class="text-danger"></span> *@
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputDepartmentName">Department Name</label>
+        @* <input type="text" class="form-control" value="@Model?.Deptid" name="Deptid"> *@
+        <select class="form-control" asp-for="DeptId" asp-items="Depts">
+        
+        </select> 
+
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+@* 
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+} *@

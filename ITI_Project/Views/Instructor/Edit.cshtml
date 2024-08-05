@@ -1,0 +1,50 @@
+﻿
+@model Instructor
+@{
+    SelectList Depts = new SelectList(ViewBag.depts, "Id", "Name"); //Id, name are property of Departments which in lis "depts" 
+    SelectList Crs = new SelectList(ViewBag.crs, "CourseId", "Name"); //Id, name are property of courses which in list "crs"
+}
+<form action="/Instructor/EditSave">
+    <input type="hidden" name="InstructorId" value="@Model?.InstructorId" />
+    <div class="form-group">
+        @* <label for="exampleInputName">Name</label> *@
+        @* @Html.LabelFor(e => e.Name) *@
+        <label asp-for="Name"></label>
+        @* pure html *@
+          @* <input type="text" class="form-control" value="@Model?.Name" name="Name"> *@
+        @* html helper*@
+          @* @Html.TextAreaFor(e => e.Name, new { @class = "form-control" }) *@
+          @* @Html.EditorFor(e => e.Name) *@
+        @* Tag html *@
+        <input asp-for="Name" class="form-control" />
+
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputage">age</label>
+        <input type="text" class="form-control" value="@Model?.age" name="age">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputsalry">salary</label>
+        <input type="text" class="form-control" value="@Model?.salary" name="salary">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputCourseName">Course Name</label>
+        @* <input type="text" class="form-control" value="@Model?.CourseId" name="CourseId"> @*Pure Html*@ 
+        @* Tag html *@
+        <select class="form-control" asp-for="CourseId" asp-items="Crs">
+            
+                </select>
+       
+    </div>
+    <div class="form-group">
+        <label for="exampleInputDepartmentName">Department Name</label>
+        @* <input type="text" class="form-control" value="@Model?.Deptid" name="Deptid"> *@
+        <select class="form-control" asp-for="Deptid" asp-items="Depts">
+        </select>
+
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
