@@ -5,8 +5,6 @@
             <th scope="col">Name</th>
             <th scope="col">Department_Name</th>
             <th scope="col">Actions</th>
-            <th scope="col">Actions</th>
-            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,12 +18,10 @@
                 @* HTML HELPER*@
                 @* <td> @Html.ActionLink("Details", "Details", "Instructor", new { id = inst.InstructorId }, new { @class = "btn btn-outline-info" })</td> *@
                 @*Tag HTML*@
-                <td><a asp-action="Details" asp-controller="Course" asp-route-id="@Crs.CourseId" class="btn btn-outline-info">Details</a></td>
+                <td><a asp-action="Details" asp-controller="Course" asp-route-id="@Crs.CourseId" class="btn btn-primary btn-sm">Details</a>
+                    <a asp-action="Edit" asp-controller="Course" asp-route-id="@Crs.CourseId" class="btn btn-warning btn-sm">Edit</a>
 
-                <td> <a href="/Course/Edit/@Crs.CourseId" class="btn btn-outline-info">Edit</a></td>
-                <td>
-                    <form action="/Course/Delete" onsubmit="return confirmDelete();">
-                        <input type="hidden" name="CourseId" value="@Crs?.CourseId"/>      <!-- you may remove this and modify imp of action delete -->
+                    <form asp-action="Delete" asp-controller="Course" asp-route-id="Crs.CourseId" method="post" onsubmit="return confirmDelete();" style="display:inline;">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>

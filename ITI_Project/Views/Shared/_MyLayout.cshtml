@@ -79,6 +79,12 @@
 							Deparments
 						</a>
 					</li>
+					<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "TraineeCourses") ? "active" : "")">
+						<a asp-action="GetAll" asp-controller="TraineeCourses"
+						   onclick="if (this.parentElement.classList.contains('active')) { return false; }">
+							TraineeCourses
+						</a>
+					</li>
 				</ul>
 			</nav>
 
@@ -160,7 +166,7 @@
 				</div>
 				<!-- footer logo -->
 				<!-- footer nav -->
-				<div class="col-md-6">
+				<div class="col-md-10">
 					<ul class="main-menu nav navbar-nav navbar-right">
 						<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "Instructor") ? "active" : "")">
 							<a asp-action="GetAll" asp-controller="Instructor" onclick="if (this.parentElement.classList.contains('active')) { return false; }">
@@ -184,6 +190,12 @@
 							<a asp-action="GetAll" asp-controller="Department"
 							   onclick="if (this.parentElement.classList.contains('active')) { return false; }">
 								Deparments
+							</a>
+						</li>
+						<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "TraineeCourses") ? "active" : "")">
+							<a asp-action="GetAll" asp-controller="TraineeCourses"
+							   onclick="if (this.parentElement.classList.contains('active')) { return false; }">
+								TraineeCourses
 							</a>
 						</li>
 					</ul>

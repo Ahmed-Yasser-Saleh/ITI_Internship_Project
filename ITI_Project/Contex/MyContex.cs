@@ -20,7 +20,13 @@ namespace ITI_Project.Contex
             modelBuilder.Entity<Instructor>()
            .Property(u => u.InstructorId)
            .ValueGeneratedNever();
-        }
+            modelBuilder.Entity<Trainee_Course>()
+		   .Property(u => u.TraineeId)
+		   .ValueGeneratedNever();
+			modelBuilder.Entity<Trainee_Course>()
+           .Property(u => u.CourseId)
+           .ValueGeneratedNever();
+		}
         public DbSet<Trainee> Trainees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Instructor> Instructors { get; set; }

@@ -53,8 +53,9 @@ namespace ITI_Project.Controllers
             return View("Edit", Dept);
         }
 
-        public IActionResult Delete(Department Dept)
+        public IActionResult Delete(int id)
         {
+            var Dept = db.Departments.FirstOrDefault(i => i.Id == id);
             db.Departments.Remove(Dept);
             db.SaveChanges();
             return RedirectToAction("GetAll");

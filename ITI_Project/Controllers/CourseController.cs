@@ -61,8 +61,9 @@ namespace ITI_Project.Controllers
             return View("Edit", Crs);
         }
 
-        public IActionResult Delete(Course Crs)
+        public IActionResult Delete(int id)
         {
+            var Crs = db.Courses.FirstOrDefault(i => i.CourseId == id);
 			db.Courses.Remove(Crs);
             db.SaveChanges();
             return RedirectToAction("GetAll");

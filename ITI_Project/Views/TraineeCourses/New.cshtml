@@ -1,0 +1,34 @@
+﻿@model Trainee_Course
+@{ 
+    SelectList Trs = new SelectList(ViewBag.Trs, "Id", "Name");
+    SelectList Crs = new SelectList(ViewBag.Crs, "CourseId", "Name"); //Id, name are property of courses which in list "crs"
+    SelectList Degrs = new SelectList(ViewBag.degrees);
+}
+<form action="/TraineeCourses/Save" method="post">
+    <div class="form-group">
+        <label for="exampleInputName">ID</label>
+        <select class="form-control" asp-for="TraineeId" asp-items="Trs">
+            @*Tag html*@
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputCourseName">Course Name</label>
+        @* <input type="text" class="form-control" value="@Model?.CourseId" name="CourseId"> *@ @*Pure Html*@
+        <select class="form-control" asp-for="CourseId" asp-items="Crs"> @*Tag html*@
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputage">degree</label>
+
+        <select class="form-control" asp-for="degree" asp-items="Degrs">
+            @*Tag html*@
+
+        </select>
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

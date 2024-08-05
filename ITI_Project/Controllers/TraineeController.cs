@@ -74,8 +74,9 @@ namespace ITI_Project.Controllers
 			return View("Edit", trainee);
 		}
 
-		public IActionResult Delete( Trainee trainee)
+		public IActionResult Delete(int id)
 		{
+			var trainee = db.Trainees.FirstOrDefault(i => i.Id == id);
 			db.Trainees.Remove(trainee);
 			db.SaveChanges();
 			return RedirectToAction("GetAll");

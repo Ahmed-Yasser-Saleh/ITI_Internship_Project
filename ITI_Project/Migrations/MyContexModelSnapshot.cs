@@ -120,10 +120,10 @@ namespace ITI_Project.Migrations
 
             modelBuilder.Entity("ITI_Project.Models.Trainee_Course", b =>
                 {
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TraineeId")
+                    b.Property<int?>("TraineeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("degree")
