@@ -12,6 +12,7 @@ namespace ITI_Project.Models
         [Range(18, 23)]
         public int? age {  get; set; } 
         public string? grade {  get; set; }
+
         [MaxLength(40)]
         public string? address { get; set; }
 

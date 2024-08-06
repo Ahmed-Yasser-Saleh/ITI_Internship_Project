@@ -46,29 +46,7 @@ table: "Trainees");
                 principalTable: "Departments",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.SetNull);
-//            migrationBuilder.DropForeignKey(
-//name: "FK_Trainee_Courses_Courses_CourseId",
-//table: "Trainee_Courses");
 
-//            migrationBuilder.AddForeignKey(
-//                name: "FK_Trainee_Courses_Courses_CourseId",
-//                table: "Trainee_Courses",
-//                column: "CourseId",
-//                principalTable: "Courses",
-//                principalColumn: "CourseId",
-//                onDelete: ReferentialAction.SetNull);
-
-//            migrationBuilder.DropForeignKey(
-//name: "FK_Trainee_Courses_Trainees_TraineeId",
-//table: "Trainee_Courses");
-
-//            migrationBuilder.AddForeignKey(
-//                name: "FK_Trainee_Courses_Trainees_TraineeId",
-//                table: "Trainee_Courses",
-//                column: "TraineeId",
-//                principalTable: "Trainees",
-//                principalColumn: "Id",
-//                onDelete: ReferentialAction.SetNull);
 
         }
     
@@ -112,30 +90,6 @@ table: "Trainees");
                 principalTable: "Departments",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.SetNull);
-
-//            migrationBuilder.DropForeignKey(
-//name: "FK_Trainee_Courses_Courses_CourseId",
-//table: "Trainee_Courses");
-
-//            migrationBuilder.AddForeignKey(
-//                name: "FK_Trainee_Courses_Courses_CourseId",
-//                table: "Trainee_Courses",
-//                column: "CourseId",
-//                principalTable: "Courses",
-//                principalColumn: "CourseId",
-//                onDelete: ReferentialAction.SetNull);
-
-//            migrationBuilder.DropForeignKey(
-//name: "FK_Trainee_Courses_Trainees_TraineeId",
-//table: "Trainee_Courses");
-
-//            migrationBuilder.AddForeignKey(
-//                name: "FK_Trainee_Courses_Trainees_TraineeId",
-//                table: "Trainee_Courses",
-//                column: "TraineeId",
-//                principalTable: "Trainees",
-//                principalColumn: "Id",
-//                onDelete: ReferentialAction.SetNull);
         }
     }
 }
