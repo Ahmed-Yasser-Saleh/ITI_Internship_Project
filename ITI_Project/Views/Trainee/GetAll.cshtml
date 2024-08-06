@@ -19,7 +19,7 @@
                 <td>@trainee.Name</td>
                 <td>@trainee.age</td>
                 <td>@trainee.address</td>
-                <td>@trainee.Department.Name</td>
+                <td>@(trainee.Department?.Name ?? "NULL")</td>
                 <td>@trainee.grade</td>
                 @* pure HTML*@
                  @* <td> <a href="/traineeructor/Details/@trainee.traineeructorId" class="btn btn-outline-info">Details</a></td> *@

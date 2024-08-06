@@ -10,12 +10,24 @@ namespace ITI_Project.Controllers
         MyContex db = new MyContex();
         public IActionResult GetALL()
         {
+            
             var res = db.Courses.Include(d => d.Department).ToList();
+            
             return View(res);
         }
         public IActionResult Details(int id)
         {
             var res = db.Courses.Include(d => d.Department).FirstOrDefault(i => i.CourseId == id);
+            if (res == null)
+            {
+                // Handle the case where the course was not found
+                return NotFound(); // Or handle according to your logic
+            }
+            if (res.Department == null)
+            {
+                // You can provide a fallback or alternative logic here
+                ViewBag.Message = "No department assigned to this course.";
+            }
             return View("Details", res);
         }
         public IActionResult New()
@@ -27,7 +39,7 @@ namespace ITI_Project.Controllers
         [HttpPost]
         public IActionResult Save(Course Crs)
         {
-            if (Crs.DeptId != null && Crs.Name != null)
+            if (Crs.Name != null)
 				{
                 db.Courses.Add(Crs);
                 db.SaveChanges();
@@ -52,7 +64,7 @@ namespace ITI_Project.Controllers
         {
             var depts = db.Departments.ToList();
             ViewBag.depts = depts;
-			if (Crs.DeptId != null && Crs.Name != null)   
+			if (Crs.Name != null)   
 			{
                 db.Courses.Update(Crs);
                 db.SaveChanges();

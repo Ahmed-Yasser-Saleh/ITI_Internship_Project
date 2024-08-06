@@ -8,7 +8,7 @@
             <p class="card-text"><strong>Age:</strong> @Model.age</p>
             <p class="card-text"><strong>Salary:</strong> @Model.salary</p>
             <p class="card-text"><strong>Course:</strong> @Model.Course.Name</p>
-            <p class="card-text"><strong>Department:</strong> @Model.Department.Name</p>
+            <p class="card-text"><strong>Department:</strong> @(Model.Department?.Name ?? "NULL")</p>
         </div>
     </div>
 </div>

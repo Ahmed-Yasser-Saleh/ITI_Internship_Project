@@ -20,7 +20,7 @@
                 <td>@inst.age</td>
                 <td>@inst.salary</td>
                 <td>@inst.Course.Name</td>
-                <td>@inst.Department.Name</td>
+                <td>@(inst.Department?.Name ?? "NULL")</td>
 
                 @* pure HTML*@
                  @* <td> <a href="/Instructor/Details/@inst.InstructorId" class="btn btn-outline-info">Details</a></td> *@
