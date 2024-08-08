@@ -17,9 +17,10 @@
             <tr>
                 <td>@inst.InstructorId</td>
                 <td>@inst.Name</td>
+                
                 <td>@inst.age</td>
                 <td>@inst.salary</td>
-                <td>@inst.Course.Name</td>
+                <td>@(inst.Course?.Name ?? "NULL")</td>
                 <td>@(inst.Department?.Name ?? "NULL")</td>
 
                 @* pure HTML*@

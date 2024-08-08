@@ -25,7 +25,7 @@ namespace ITI_Project.Controllers
 		}
 		public IActionResult New()
 		{
-            List<string> grades = new List<string> { "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A" };
+            List<string> grades = new List<string> { "F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A" };
             ViewBag.grades = grades;
 			var depts = db.Departments.ToList();
 			ViewBag.depts = depts;
@@ -34,8 +34,9 @@ namespace ITI_Project.Controllers
 		[HttpPost]
 		public IActionResult Save(Trainee trainee)
 		{
-            if (trainee.Deptid != 0 && trainee.Name != null
-			  && trainee.grade != null && trainee.address != null)
+     //       if (trainee.Deptid != 0 && trainee.Name != null
+			  //&& trainee.grade != null && trainee.address != null)
+			if(ModelState.IsValid)
 			{
 				db.Trainees.Add(trainee);
 				db.SaveChanges();
@@ -43,30 +44,33 @@ namespace ITI_Project.Controllers
 			}
 			else
 			{
-				var depts = db.Departments.ToList();
+                List<string> grades = new List<string> { "F","D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A" };
+                ViewBag.grades = grades;
+                var depts = db.Departments.ToList();
 				ViewBag.depts = depts;
 				return View("New", trainee);
 			}
-
 		}
 		public IActionResult Edit(int id)
 		{
-            List<string> grades = new List<string> {"D-", "D", "D+", "C-", "C", "C+", "B-", "B","B+", "A-","A"};
+            List<string> grades = new List<string> {"F","D-", "D", "D+", "C-", "C", "C+", "B-", "B","B+", "A-","A"};
             ViewBag.grades = grades;
             var depts = db.Departments.ToList();
             ViewBag.depts = depts;
             var trainee = db.Trainees.FirstOrDefault(i => i.Id == id);
 			return View(trainee);
 		}
-		public IActionResult EditSave(Trainee trainee)
+        [HttpPost]
+        public IActionResult EditSave(Trainee trainee)
 		{
             List<string> grades = new List<string> { "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A" };
             ViewBag.grades = grades;
             var depts = db.Departments.ToList();
             ViewBag.depts = depts;
-            if (trainee.Deptid != 0 && trainee.Name != null
-			  && trainee.grade != null && trainee.address != null)
-			{
+            //       if (trainee.Deptid != 0 && trainee.Name != null
+            //&& trainee.grade != null && trainee.address != null)
+            if (ModelState.IsValid)
+            {
 				db.Trainees.Update(trainee);
 				db.SaveChanges();
 				return RedirectToAction("GetAll", trainee);

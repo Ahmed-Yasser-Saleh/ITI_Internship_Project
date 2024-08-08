@@ -39,7 +39,8 @@ namespace ITI_Project.Controllers
         [HttpPost]
         public IActionResult Save(Course Crs)
         {
-            if (Crs.Name != null)
+            //if (Crs.Name != null)
+            if(ModelState.IsValid)
 				{
                 db.Courses.Add(Crs);
                 db.SaveChanges();
@@ -60,12 +61,14 @@ namespace ITI_Project.Controllers
             var inst = db.Courses.FirstOrDefault(i => i.CourseId == id);
             return View(inst);
         }
+        [HttpPost]
         public IActionResult EditSave(Course Crs)
         {
             var depts = db.Departments.ToList();
             ViewBag.depts = depts;
-			if (Crs.Name != null)   
-			{
+            //if (Crs.Name != null)
+            if (ModelState.IsValid)
+            {
                 db.Courses.Update(Crs);
                 db.SaveChanges();
                 return RedirectToAction("GetAll", Crs);

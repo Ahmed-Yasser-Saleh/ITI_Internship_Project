@@ -34,9 +34,9 @@ namespace ITI_Project.Controllers
         [HttpPost]
         public IActionResult Save(Instructor inst)
         {
-            if (inst.CourseId != 0 && inst.Deptid != 0 && inst.Name != null
-              && inst.salary != null && inst.age != null)
-
+            //if (inst.CourseId != 0 && inst.Deptid != 0 && inst.Name != null
+            //  && inst.salary != null && inst.age != null)
+            if(ModelState.IsValid)
             {
                 db.Instructors.Add(inst);
                 db.SaveChanges();
@@ -61,15 +61,17 @@ namespace ITI_Project.Controllers
 			var inst = db.Instructors.FirstOrDefault(i => i.InstructorId==id);
             return View(inst);
         }
+        [HttpPost]
         public IActionResult EditSave(Instructor inst)
         {
 			var crs = db.Courses.ToList();
 			var depts = db.Departments.ToList();
 			ViewBag.crs = crs;
 			ViewBag.depts = depts;
-            if (inst.CourseId != 0 && inst.Deptid != 0 && inst.Name != null
-               && inst.salary != null && inst.age != null)
-            {
+            //if (inst.CourseId != 0 && inst.Deptid != 0 && inst.Name != null
+            //   && inst.salary != null && inst.age != null)
+                if (ModelState.IsValid)
+                {
                 db.Instructors.Update(inst);
                 db.SaveChanges();
                 return RedirectToAction("GetAll", inst);

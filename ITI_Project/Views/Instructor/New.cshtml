@@ -11,14 +11,17 @@
     <div class="form-group">
         <label for="exampleInputName">Name</label>
         <input type="text" class="form-control" value="@Model?.Name" name="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label for="exampleInputage">age</label>
         <input type="text" class="form-control" value="@Model?.age" name="age">
+        <span asp-validation-for="age" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label for="exampleInputsalry">salary</label>
         <input type="text" class="form-control" value="@Model?.salary" name="salary">
+        <span asp-validation-for="salary" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label for="exampleInputCourseName">Course Name</label>
@@ -39,3 +42,8 @@
     <br />
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

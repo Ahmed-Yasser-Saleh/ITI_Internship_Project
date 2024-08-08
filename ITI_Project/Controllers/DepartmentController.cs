@@ -25,7 +25,8 @@ namespace ITI_Project.Controllers
         [HttpPost]
         public IActionResult Save(Department Dept)
         {
-            if (Dept.Name != null)
+            //if (Dept.Name != null)
+            if(ModelState.IsValid)
             {
                 db.Departments.Add(Dept);
                 db.SaveChanges();
@@ -42,9 +43,11 @@ namespace ITI_Project.Controllers
             var dept = db.Departments.FirstOrDefault(i => i.Id == id);
             return View(dept);
         }
+        [HttpPost]
         public IActionResult EditSave(Department Dept)
         {
-            if (Dept.Name != null)
+            //if (Dept.Name != null)
+            if (ModelState.IsValid)
             {
                 db.Departments.Update(Dept);
                 db.SaveChanges();

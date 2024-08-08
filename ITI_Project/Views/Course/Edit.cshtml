@@ -3,7 +3,7 @@
 @{
     SelectList Depts = new SelectList(ViewBag.depts, "Id", "Name"); //Id, name are property of Departments which in lis "depts" 
 }
-<form action="/Course/EditSave">
+<form action="/Course/EditSave" method="post">
     <input type="hidden" name="CourseId" value="@Model?.CourseId" />
     <div class="form-group">
         @* <label for="exampleInputName">Name</label> *@
@@ -16,6 +16,7 @@
           @* @Html.EditorFor(e => e.Name) *@
         @* Tag html *@
         <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
 
 
     </div>
@@ -30,3 +31,8 @@
     <br />
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
