@@ -53,6 +53,12 @@
 			<!-- Navigation -->
 			<nav id="nav">
 				<ul class="main-menu nav navbar-nav navbar-right">
+					<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "Home") ? "active" : "")">
+						<a asp-action="Index" asp-controller="Home"
+						   onclick="if (this.parentElement.classList.contains('active')) { return false; }">
+							Home
+						</a>
+					</li>
 					<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "Instructor") ? "active" : "")">
 						<a asp-action="GetAll" asp-controller="Instructor" onclick="if (this.parentElement.classList.contains('active')) { return false; }">
 							Instructors
@@ -168,6 +174,12 @@
 				<!-- footer nav -->
 				<div class="col-md-10">
 					<ul class="main-menu nav navbar-nav navbar-right">
+						<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "Home") ? "active" : "")">
+							<a asp-action="Index" asp-controller="Home"
+							   onclick="if (this.parentElement.classList.contains('active')) { return false; }">
+								Home
+							</a>
+						</li>
 						<li class="@((ViewContext.RouteData.Values["controller"]?.ToString() == "Instructor") ? "active" : "")">
 							<a asp-action="GetAll" asp-controller="Instructor" onclick="if (this.parentElement.classList.contains('active')) { return false; }">
 								Instructors

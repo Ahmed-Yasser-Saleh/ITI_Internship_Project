@@ -30,7 +30,7 @@ namespace ITI_Project
 
 			app.MapControllerRoute(
 				name: "default",
-				pattern: "{controller=Instructor}/{action=GetAll}/{id?}");
+				pattern: "{controller=Home}/{action=Index}");
 			app.Run();
 		}
 	}
