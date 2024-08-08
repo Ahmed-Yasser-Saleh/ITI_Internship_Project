@@ -7,7 +7,7 @@ namespace ITI_Project.Models
     public class Department
     {
         public int Id { get; set; }
-        [RegularExpression("[a-zA-Z]{2,20}", ErrorMessage = "Name must be only character included '.' with size 2-20 char")]
+        [RegularExpression("[a-zA-Z]{2,20}", ErrorMessage = "Name must be only character with size 2-20 char")]
         public string Name { get; set; }
         [ValidateNever]
         public List<Trainee> TraineeList { get; set; }
