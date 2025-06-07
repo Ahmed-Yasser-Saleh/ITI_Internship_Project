@@ -41,7 +41,7 @@ namespace ITI_Project.Controllers
         {
             //if (Crs.Name != null)
             if(ModelState.IsValid)
-				{
+		    {
                 db.Courses.Add(Crs);
                 db.SaveChanges();
                 return RedirectToAction("GetAll");

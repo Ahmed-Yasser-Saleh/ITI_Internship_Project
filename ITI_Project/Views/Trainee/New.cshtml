@@ -7,22 +7,30 @@
 }
 <form action="/Trainee/Save" method="post">
     <div class="form-group">
-        <label for="exampleInputName">Id</label>
-        <input type="text" class="form-control" value="@Model?.Id" name="Id">
+      @*  <label for="exampleInputName">Id</label>
+        <input type="text" class="form-control" value="@Model?.Id" name="Id">*@
+        <label asp-for="Id"></label>
+        <input asp-for="@Model.Id" class="form-control" />
     </div>
     <div class="form-group">
-        <label for="exampleInputName">Name</label>
-        <input type="text" class="form-control" value="@Model?.Name" name="Name">
-        <span asp-validation-for="Name" class="text-danger"></span>
+       @* <label for="exampleInputName">Name</label>
+        <input type="text" class="form-control" value="@Model?.Name" name="Name"> *@
+        <label asp-for="Name"></label> 
+        <input asp-for="Name" class="form-control" />
+       <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="exampleInputName">age</label>
-        <input type="text" class="form-control" value="@Model?.age" name="age">
+      @* <label for="exampleInputName">age</label>
+        <input type="text" class="form-control" value="@Model?.age" name="age"> *@
+        <label asp-for="age"></label>
+        <input asp-for="age" class="form-control" />
         <span asp-validation-for="age" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="exampleInputage">address</label>
-        <input type="text" class="form-control" value="@Model?.address" name="address">
+        @*<label for="exampleInputage">address</label>
+        <input type="text" class="form-control" value="@Model?.address" name="address">*@
+        <label asp-for="address"></label>
+        <input asp-for="address" class="form-control" />
         <span asp-validation-for="address" class="text-danger"></span>
     </div>
 

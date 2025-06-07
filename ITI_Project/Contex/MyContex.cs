@@ -7,7 +7,8 @@ namespace ITI_Project.Contex
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = DESKTOP-M284REV\\SQLEXPRESS; Database = ITI_Project ; Trusted_Connection = true ; Encrypt = false");
+            optionsBuilder.UseSqlServer("Server = DESKTOP-M284REV\\SQLEXPRESS; Database = ITI_Project ; User ID=myasser;Password=ahmed235;TrustServerCertificate=True");
+           // optionsBuilder.UseSqlServer("Server=db11749.public.databaseasp.net; Database=db11749; User Id=db11749; Password=8c+GN@4n%wD5; Encrypt=True; TrustServerCertificate=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
